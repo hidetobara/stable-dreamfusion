@@ -1,4 +1,6 @@
-FROM nvidia/cuda:11.6.2-cudnn8-devel-ubuntu20.04
+# Ubuntu 20.04, PyTorch 1.11, cuda 11.6
+FROM nvcr.io/nvidia/pytorch:22.02-py3
+#FROM nvidia/cuda:11.6.2-cudnn8-devel-ubuntu20.04
 
 # Remove any third-party apt sources to avoid issues with expiring keys.
 RUN rm -f /etc/apt/sources.list.d/*.list
@@ -42,7 +44,7 @@ RUN pip3 install git+https://github.com/NVlabs/nvdiffrast/
 RUN pip3 install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
 RUN pip3 install git+https://github.com/openai/CLIP.git
-RUN bash scripts/install_ext.sh
+#RUN bash scripts/install_ext.sh
 
 
 
